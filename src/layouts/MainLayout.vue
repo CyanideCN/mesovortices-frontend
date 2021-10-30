@@ -50,7 +50,7 @@
             >
               <q-card>
                 <q-card-section>
-                  <q-item clickable dense to="sounding">
+                  <q-item clickable dense to="sca">
                     Wind field
                   </q-item>
                 </q-card-section>
