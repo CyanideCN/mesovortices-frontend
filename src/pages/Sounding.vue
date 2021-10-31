@@ -47,15 +47,21 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
+import axios from 'axios'
+
+const callBackend = function (api) {
+  return axios.get('http://localhost:5000/' + api)
+}
 
 export default defineComponent({
   name: 'Sounding',
   methods: {
     onClick () {
       const stationId = this.text
-      const dstring = this.date + ' ' + this.time_pick
-      console.log(stationId)
-      console.log(dstring)
+      let dstring = this.date + this.time_pick.replace('Z', '')
+      dstring = dstring.replaceAll('/', '')
+      callBackend('api/get_sounding_plot?stid=' + stationId + '&time=' + dstring)
+        .then(x => { this.pic_url = x.data.path })
     }
   },
   setup () {

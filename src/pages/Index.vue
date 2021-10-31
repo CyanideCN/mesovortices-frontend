@@ -1,6 +1,8 @@
 <template>
   <q-page class="flex flex-center">
-    <p>Test</p>
+    <div class="text-h2" style="opacity:.4">
+      Under construction...
+    </div>
   </q-page>
 </template>
 

@@ -32,12 +32,12 @@
             <q-expansion-item
               expand-separator
               icon="eva-thermometer-outline"
-              label="Observation"
+              label="Current Observation"
             >
               <q-card>
                 <q-card-section>
                   <q-item clickable dense to="sounding">
-                    Sounding
+                    Sounding Skew-T
                   </q-item>
                 </q-card-section>
               </q-card>
@@ -46,19 +46,22 @@
             <q-expansion-item
               expand-separator
               icon="eva-globe-2-outline"
-              label="Satellite"
+              label="Historical Weather"
             >
               <q-card>
                 <q-card-section>
-                  <q-item clickable dense to="sca">
-                    Wind field
+                  <q-item dense disable>
+                    Historical Obs.
                   </q-item>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
-            <q-expansion-item icon="assessment" label="Disabled" disable>
+            <q-expansion-item expand-separator icon="assessment" label="Forecast">
               <q-card>
                 <q-card-section>
+                  <q-item dense clickable to="stforecast">
+                    Station Forecast
+                  </q-item>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
