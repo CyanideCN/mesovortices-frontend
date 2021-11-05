@@ -48,9 +48,10 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import axios from 'axios'
+import { Notify } from 'quasar'
 
 const callBackend = function (api) {
-  return axios.get('http://localhost:5000/' + api)
+  return axios.get('http://168.235.85.41:5000/' + api)
 }
 
 export default defineComponent({
@@ -58,6 +59,15 @@ export default defineComponent({
   methods: {
     onClick () {
       const stationId = this.text
+      if (stationId === '') {
+        Notify.create({
+          message: '站号不能为空',
+          position: 'top',
+          color: 'red',
+          textColor: 'white'
+        })
+        return
+      }
       let dstring = this.date + this.time_pick.replace('Z', '')
       dstring = dstring.replaceAll('/', '')
       callBackend('api/get_sounding_plot?stid=' + stationId + '&time=' + dstring)
@@ -67,7 +77,7 @@ export default defineComponent({
   setup () {
     const d = new Date().toISOString().substring(0, 10).replaceAll('-', '/')
     return {
-      date: d,
+      date: ref(d),
       time_pick: ref('00Z'),
       pic_url: ref(''),
       options: [
