@@ -39,6 +39,9 @@
                   <q-item clickable dense to="sounding">
                     Sounding Skew-T
                   </q-item>
+                  <q-item clickable dense to="observation">
+                    Surface Observation
+                  </q-item>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
@@ -51,7 +54,7 @@
               <q-card>
                 <q-card-section>
                   <q-item dense disable>
-                    Historical Obs.
+                    Historical Observation
                   </q-item>
                 </q-card-section>
               </q-card>

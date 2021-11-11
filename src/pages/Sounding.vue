@@ -51,7 +51,7 @@ import axios from 'axios'
 import { Notify } from 'quasar'
 
 const callBackend = function (api) {
-  return axios.get('http://168.235.85.41:5000/' + api)
+  return axios.get('http://localhost:8080/' + api)
 }
 
 export default defineComponent({
@@ -71,7 +71,18 @@ export default defineComponent({
       let dstring = this.date + this.time_pick.replace('Z', '')
       dstring = dstring.replaceAll('/', '')
       callBackend('api/get_sounding_plot?stid=' + stationId + '&time=' + dstring)
-        .then(x => { this.pic_url = x.data.path })
+        .then(x => {
+          if (x.data.code !== 0) {
+            Notify.create({
+              message: x.data.msg,
+              position: 'top',
+              color: 'red',
+              textColor: 'white'
+            })
+          } else {
+            this.pic_url = x.data.path
+          }
+        })
     }
   },
   setup () {
