@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-xs-9 offset-xs-2 col-sm-5 offset-sm-3">
-      <q-slider v-model="index" :min="0" :max="12"/>
+      <q-slider v-model="index" :min="0" :max="11"/>
     </div>
   </div>
   <div class='row'>
@@ -35,7 +35,7 @@ export default {
     const initType = 'snowd'
     const initArea = 'nc'
     return {
-      index: ref(12),
+      index: ref(11),
       type: ref(initType),
       area: ref(initArea),
       imgList: ref([]),
