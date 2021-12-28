@@ -140,7 +140,7 @@ module.exports = configure(function (ctx) {
       manifest: {
         name: 'Mesovortices',
         short_name: 'Mesovortices',
-        description: 'Personal website',
+        description: 'A website all about weather',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

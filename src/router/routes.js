@@ -28,6 +28,13 @@ const routes = [
       { path: '', component: () => import('pages/Observation.vue') }
     ]
   },
+  {
+    path: '/ringanalysis',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/RingAnalysis.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

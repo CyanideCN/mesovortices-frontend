@@ -68,6 +68,19 @@
                 </q-card-section>
               </q-card>
             </q-expansion-item>
+            <q-expansion-item
+              expand-separator
+              icon="eva-globe-outline"
+              label="Satellite"
+            >
+              <q-card>
+                <q-card-section>
+                  <q-item dense clickable to="ringanalysis">
+                    Dvorak Ring Analysis
+                  </q-item>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
           </q-list>
         </q-scroll-area>
       </q-drawer>

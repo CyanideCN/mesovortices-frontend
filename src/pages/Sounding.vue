@@ -51,7 +51,7 @@ import axios from 'axios'
 import { Notify } from 'quasar'
 
 const callBackend = function (api) {
-  return axios.get('http://localhost:8080/' + api)
+  return axios.get('https://mesovortices.com/' + api)
 }
 
 export default defineComponent({

@@ -1,6 +1,6 @@
 # Mesovortices (mesovortices-frontend)
 
-Personal website
+A website all about weather
 
 ## Install the dependencies
 ```bash
