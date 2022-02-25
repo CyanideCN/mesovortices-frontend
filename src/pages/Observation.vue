@@ -1,11 +1,11 @@
 <template>
-  <div class="row">
-    <div class="col-xs-9 offset-xs-2 col-sm-5 offset-sm-3">
+  <div class="row" v-if="!q.platform.is.mobile || q.platform.is.ipad">
+    <div class="col-6 offset-3">
       <q-slider v-model="index" :min="0" :max="11" :step="1" snap/>
     </div>
   </div>
   <div class='row'>
-    <div class='col-2'>
+    <div class='col-md-2 col-xs-6 offset-xs-3 offset-md-0'>
       <q-select
         map-options v-model="area" :options="areaOptions"
         label="绘图区域" outlined square emit-value
@@ -15,7 +15,10 @@
         label="要素" outlined square emit-value
       />
     </div>
-    <div class='col-8'>
+    <div class="col-10 offset-1" v-if="q.platform.is.mobile && !q.platform.is.ipad">
+      <q-slider v-model="index" :min="0" :max="11" :step="1" snap/>
+    </div>
+    <div class='col-md-8 col-xs-12'>
       <q-img
         v-if="pic_url"
         :src="pic_url"
@@ -28,7 +31,7 @@
 <script>
 import { ref } from 'vue'
 import axios from 'axios'
-import { Notify } from 'quasar'
+import { Notify, useQuasar } from 'quasar'
 
 const callBackend = function (api) {
   return axios.get('https://mesovortices.com/' + api)
@@ -38,14 +41,17 @@ export default {
   setup () {
     const initType = 'snowd'
     const initArea = 'nc'
+    const q = useQuasar()
     return {
       index: ref(11),
       type: ref(initType),
       area: ref(initArea),
+      q: ref(q),
       imgList: ref([]),
       areaOptions: [{ label: '华北地区', value: 'nc' },
         { label: '东北地区', value: 'nec' },
         { label: '华东地区', value: 'ec' },
+        { label: '上海周边', value: 'yd' },
         { label: '西南地区', value: 'swc' },
         { label: '华南地区', value: 'sc' },
         { label: '中北地区', value: 'mn' },
@@ -54,7 +60,8 @@ export default {
       typeOptions: [{ label: '6小时最大雪深', value: 'snowd' },
         { label: '24小时最大雪深', value: 'snowd24' },
         { label: '现在天气', value: 'cww' },
-        { label: '露点变温', value: 'tdd' }
+        { label: '露点变温', value: 'tdd' },
+        { label: '降水相态&雷达', value: 'cwr' }
       ]
     }
   },
