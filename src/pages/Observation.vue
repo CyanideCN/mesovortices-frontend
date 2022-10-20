@@ -39,7 +39,7 @@ const callBackend = function (api) {
 
 export default {
   setup () {
-    const initType = 'snowd'
+    const initType = 'cww'
     const initArea = 'nc'
     const q = useQuasar()
     return {
@@ -57,10 +57,9 @@ export default {
         { label: '中北地区', value: 'mn' },
         { label: '青藏地区', value: 'qz' },
         { label: '新疆', value: 'xj' }],
-      typeOptions: [{ label: '6小时最大雪深', value: 'snowd' },
-        { label: '24小时最大雪深', value: 'snowd24' },
+      typeOptions: [
         { label: '现在天气', value: 'cww' },
-        { label: '露点变温', value: 'tdd' },
+        { label: '6小时闪电', value: 'lgt' },
         { label: '降水相态&雷达', value: 'cwr' }
       ]
     }
@@ -141,7 +140,6 @@ export default {
   methods: {
     onTypeSelectorClick (type) {
       this.type = type
-      console.log(type)
     }
   }
 }

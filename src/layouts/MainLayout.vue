@@ -42,6 +42,9 @@
                   <q-item clickable dense to="observation">
                     Surface Observation
                   </q-item>
+                  <q-item clickable dense to="fengyuobs">
+                    Fengyu Weather Station
+                  </q-item>
                 </q-card-section>
               </q-card>
             </q-expansion-item>
@@ -77,6 +80,19 @@
                 <q-card-section>
                   <q-item dense clickable to="ringanalysis">
                     Dvorak Ring Analysis
+                  </q-item>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+            <q-expansion-item
+              expand-separator
+              icon="eva-book-outline"
+              label="Miscellaneous"
+            >
+              <q-card>
+                <q-card-section>
+                  <q-item dense clickable to="typhoonsim">
+                    Typhoon Track Simulation
                   </q-item>
                 </q-card-section>
               </q-card>

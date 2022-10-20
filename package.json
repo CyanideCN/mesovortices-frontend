@@ -1,7 +1,7 @@
 {
   "name": "mesovortices-frontend",
   "version": "0.0.1",
-  "description": "Personal website",
+  "description": "A website all about weather",
   "productName": "Mesovortices",
   "author": "CyanideCN <274555447@qq.com>",
   "private": true,
