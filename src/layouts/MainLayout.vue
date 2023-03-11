@@ -48,20 +48,6 @@
                 </q-card-section>
               </q-card>
             </q-expansion-item>
-
-            <q-expansion-item
-              expand-separator
-              icon="eva-globe-2-outline"
-              label="Historical Weather"
-            >
-              <q-card>
-                <q-card-section>
-                  <q-item dense disable>
-                    Historical Observation
-                  </q-item>
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
             <q-expansion-item expand-separator icon="assessment" label="Forecast">
               <q-card>
                 <q-card-section>

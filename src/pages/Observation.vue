@@ -53,14 +53,15 @@ export default {
         { label: '华东地区', value: 'ec' },
         { label: '上海周边', value: 'yd' },
         { label: '西南地区', value: 'swc' },
+        { label: '成都周边', value: 'scb' },
         { label: '华南地区', value: 'sc' },
         { label: '中北地区', value: 'mn' },
         { label: '青藏地区', value: 'qz' },
         { label: '新疆', value: 'xj' }],
       typeOptions: [
         { label: '现在天气', value: 'cww' },
-        { label: '6小时闪电', value: 'lgt' },
-        { label: '降水相态&雷达', value: 'cwr' }
+        { label: '6小时最大雪深', value: 'snowd' },
+        { label: '24小时最大雪深', value: 'snowd24' }
       ]
     }
   },
