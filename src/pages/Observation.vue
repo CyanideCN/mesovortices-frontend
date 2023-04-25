@@ -39,7 +39,7 @@ const callBackend = function (api) {
 
 export default {
   setup () {
-    const initType = 'cww'
+    const initType = 'r24'
     const initArea = 'nc'
     const q = useQuasar()
     return {
@@ -61,7 +61,8 @@ export default {
       typeOptions: [
         { label: '现在天气', value: 'cww' },
         { label: '6小时最大雪深', value: 'snowd' },
-        { label: '24小时最大雪深', value: 'snowd24' }
+        { label: '24小时最大雪深', value: 'snowd24' },
+        { label: '24小时降水', value: 'r24' }
       ]
     }
   },

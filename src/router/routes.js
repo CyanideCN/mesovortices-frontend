@@ -49,6 +49,10 @@ const routes = [
       { path: '', component: () => import('pages/FengyuObs.vue') }
     ]
   },
+  {
+    path: '/auth',
+    component: () => import('pages/Login.vue')
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

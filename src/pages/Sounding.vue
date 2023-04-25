@@ -80,40 +80,41 @@ const callBackend = function (api) {
   return axios.get('https://mesovortices.com/' + api)
 }
 
+const createWarning = function (text) {
+  Notify.create({
+    message: text,
+    position: 'top',
+    color: 'red',
+    textColor: 'white'
+  })
+}
+
 export default defineComponent({
   name: 'Sounding',
   methods: {
     onClick () {
       const stationId = this.text
       if (stationId === '') {
-        Notify.create({
-          message: '站号不能为空',
-          position: 'top',
-          color: 'red',
-          textColor: 'white'
-        })
+        createWarning('站号不能为空')
         return
       }
+      const timestamp = Date.now()
+      if ((timestamp - this.last_click_time) < 5000) {
+        createWarning('请勿快速重复点击')
+        this.last_click_time = timestamp
+        return
+      }
+      this.last_click_time = timestamp
       let dstring = this.date + this.time_pick.replace('Z', '')
       dstring = dstring.replaceAll('/', '')
       if (this.mode === 'pic') {
         callBackend('api/get_sounding_plot?stid=' + stationId + '&time=' + dstring)
           .catch(error => {
             console.log(error)
-            Notify.create({
-              message: '连接错误，请稍后重试',
-              position: 'top',
-              color: 'red',
-              textColor: 'white'
-            })
+            createWarning('连接错误，请稍后重试')
           }).then(x => {
             if (x.data.code !== 0) {
-              Notify.create({
-                message: x.data.msg,
-                position: 'top',
-                color: 'red',
-                textColor: 'white'
-              })
+              createWarning(x.data.msg)
             } else {
               this.level_data = ''
               this.pic_url = x.data.path
@@ -123,28 +124,11 @@ export default defineComponent({
         callBackend('api/get_sounding_data?stid=' + stationId + '&time=' + dstring)
           .catch(error => {
             console.log(error)
-            Notify.create({
-              message: '连接错误，请稍后重试',
-              position: 'top',
-              color: 'red',
-              textColor: 'white'
-            })
+            createWarning('连接错误，请稍后重试')
           })
           .then(x => {
             if (x.data.code !== 0) {
-              Notify.create({
-                message: x.data.msg,
-                position: 'top',
-                color: 'red',
-                textColor: 'white'
-              })
-            } else if (x.status !== 200) {
-              Notify.create({
-                message: '连接错误，请稍后重试',
-                position: 'top',
-                color: 'red',
-                textColor: 'white'
-              })
+              createWarning(x.data.msg)
             } else {
               this.pic_url = ''
               this.level_data = JSON.parse(x.data.msg)
@@ -162,6 +146,7 @@ export default defineComponent({
       pic_url: ref(''),
       mode: ref('pic'),
       level_data: ref(''),
+      last_click_time: ref(0),
       time_options: [
         {
           label: '00Z',

@@ -33,6 +33,15 @@ export default defineComponent({
   methods: {
     onClick () {
       const stationId = this.text
+      if (stationId === '') {
+        Notify.create({
+          message: '站号不能为空',
+          position: 'top',
+          color: 'red',
+          textColor: 'white'
+        })
+        return
+      }
       callBackend('api/get_nmc_fcst_plot?stid=' + stationId)
         .then(x => {
           if (x.data.code !== 0) {
