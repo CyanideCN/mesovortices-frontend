@@ -50,8 +50,8 @@ const routes = [
     ]
   },
   {
-    path: '/auth',
-    component: () => import('pages/Login.vue')
+    path: '/ureg',
+    component: () => import('pages/UserReg.vue')
   },
   // Always leave this as last one,
   // but you can also remove it

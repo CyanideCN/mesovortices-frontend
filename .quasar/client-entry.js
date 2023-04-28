@@ -51,16 +51,16 @@ console.info('[Quasar] Running SPA.')
 
 
 
-const publicPath = `/`
+const publicPath = ``
 
 
-async function start ({ app, router }) {
+async function start ({ app, router, store, storeKey }) {
   
 
   
 
   app.use(router)
-  
+  app.use(store, storeKey)
 
   
 

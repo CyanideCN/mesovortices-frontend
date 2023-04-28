@@ -32,7 +32,6 @@ export default defineComponent({
   },
   methods: {
     onButtonClicked () {
-      console.log('123')
       axios.get('https://mesovortices.com/api/get_tcsim_result')
         .then(x => {
           if (x.data.code !== 0) {

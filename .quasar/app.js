@@ -16,6 +16,8 @@ import { Quasar } from 'quasar'
 import RootComponent from 'app/src/App.vue'
 
 
+import createStore from 'app/src/store/index'
+
 import createRouter from 'app/src/router/index'
 
 
@@ -25,9 +27,19 @@ import createRouter from 'app/src/router/index'
 export default async function (createAppFn, quasarUserOptions) {
   // create store and router instances
   
+  const store = typeof createStore === 'function'
+    ? await createStore({})
+    : createStore
+
+  // obtain Vuex injection key in case we use TypeScript
+  const { storeKey } = await import('app/src/store/index');
+  
   const router = typeof createRouter === 'function'
-    ? await createRouter({})
+    ? await createRouter({store})
     : createRouter
+  
+  // make router instance available in store
+  store.$router = router
   
 
   // Create the app instance.
@@ -47,7 +59,7 @@ export default async function (createAppFn, quasarUserOptions) {
   // different depending on whether we are in a browser or on the server.
   return {
     app,
-    
+    store, storeKey,
     router
   }
 }
