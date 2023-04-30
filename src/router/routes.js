@@ -53,6 +53,10 @@ const routes = [
     path: '/ureg',
     component: () => import('pages/UserReg.vue')
   },
+  {
+    path: '/ulogin',
+    component: () => import('pages/Login.vue')
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
