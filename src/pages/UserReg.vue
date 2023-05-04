@@ -99,7 +99,7 @@ export default defineComponent({
         })
         return
       }
-      axios.post('http://127.0.0.1:5000/ua/register',
+      axios.post('https://mesovortices.com/ua/register',
         { email: encode(this.email), username: this.username, pwd: encode(this.password) })
         .then(x => {
           if (x.data.code !== 0) {

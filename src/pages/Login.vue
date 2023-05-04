@@ -88,7 +88,7 @@ export default defineComponent({
         })
         return
       }
-      axios.post('http://127.0.0.1:5000/ua/login',
+      axios.post('https://mesovortices.com/ua/login',
         { user: encode(this.email), pwd: encode(this.password) })
         .then(x => {
           if (x.data.code !== 0) {
@@ -104,7 +104,7 @@ export default defineComponent({
               message: '登录成功，即将跳转上一页'
             })
             LocalStorage.set('sign', x.data.sign)
-            LocalStorage.set('username', this.email)
+            LocalStorage.set('username', x.data.username)
             this.$router.back()
           }
         })

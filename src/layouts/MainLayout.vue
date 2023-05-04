@@ -83,6 +83,19 @@
                 </q-card-section>
               </q-card>
             </q-expansion-item>
+            <q-expansion-item
+              expand-separator
+              icon="lock_outline"
+              label="Protected"
+            >
+              <q-card>
+                <q-card-section>
+                  <q-item dense clickable to="/protected/sounding">
+                    Sounding Skew-T
+                  </q-item>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
           </q-list>
         </q-scroll-area>
       </q-drawer>
