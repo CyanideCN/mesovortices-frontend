@@ -25,9 +25,6 @@
     <div class='col'>
       <q-option-group v-model="time_pick" :options="time_options" color="primary" size="xs" class="time_option_group" />
     </div>
-    <div class='col'>
-      <q-option-group v-model="mode" :options="mode_options" color="primary" size="xs" class="mode_option_group" />
-    </div>
   </div>
   <div class='row'>
     <div class='col-sm-8 offset-sm-2 col-xs-12'>
@@ -43,11 +40,11 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import axios from 'axios'
-import { Notify } from 'quasar'
+import { Notify, LocalStorage } from 'quasar'
 import verifyUser from 'src/assets/authtool'
 
-const callBackend = function (api) {
-  return axios.get('https://mesovortices.com/' + api)
+const callBackend = function (api, sign) {
+  return axios.get('https://mesovortices.com/' + api, { headers: { sign: sign } })
 }
 
 const createWarning = function (text) {
@@ -77,7 +74,7 @@ export default defineComponent({
       this.last_click_time = timestamp
       let dstring = this.date + this.time_pick.replace('Z', '')
       dstring = dstring.replaceAll('/', '')
-      callBackend('api/protected/get_sounding_plot?stid=' + stationId + '&time=' + dstring)
+      callBackend('api/protected/get_sounding_plot?stid=' + stationId + '&time=' + dstring, LocalStorage.getItem('sign'))
         .catch(error => {
           console.log(error)
           createWarning('连接错误，请稍后重试')

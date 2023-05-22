@@ -18,6 +18,15 @@
         </div>
       </q-img>
     </div>
+      <div class="col-sm-4 col-xs-8 offset-xs-2 offset-sm-0">
+        <q-img src="https://mesovortices.com/api/static/ringanl.png" :ratio="16 / 9">
+          <div class="absolute-full text-h4 flex flex-center">
+            <q-item to="ringanalysis">
+              Ring Analysis
+            </q-item>
+          </div>
+        </q-img>
+      </div>
     <div class="col-sm-4 col-xs-8 offset-xs-2 offset-sm-0">
       <q-img src="https://mesovortices.com/api/static/stforecast.png" :ratio="16/9">
         <div class="absolute-full text-h4 flex flex-center">

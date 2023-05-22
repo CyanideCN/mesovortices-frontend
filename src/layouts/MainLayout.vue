@@ -90,7 +90,7 @@
             >
               <q-card>
                 <q-card-section>
-                  <q-item dense clickable to="/protected/sounding">
+                  <q-item dense clickable to="/soundingp">
                     Sounding Skew-T
                   </q-item>
                 </q-card-section>

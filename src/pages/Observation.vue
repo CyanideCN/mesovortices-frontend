@@ -62,7 +62,8 @@ export default {
         { label: '现在天气', value: 'cww' },
         { label: '6小时最大雪深', value: 'snowd' },
         { label: '24小时最大雪深', value: 'snowd24' },
-        { label: '24小时降水', value: 'r24' }
+        { label: '24小时降水', value: 'r24' },
+        { label: '1小时极大风', value: 'gust' }
       ]
     }
   },

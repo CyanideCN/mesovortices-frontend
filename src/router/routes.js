@@ -58,7 +58,7 @@ const routes = [
     component: () => import('pages/Login.vue')
   },
   {
-    path: '/protected/sounding',
+    path: '/soundingp',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/protected/Sounding.vue') }
