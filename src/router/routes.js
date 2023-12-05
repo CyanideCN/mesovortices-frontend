@@ -22,10 +22,10 @@ const routes = [
     ]
   },
   {
-    path: '/observation',
+    path: '/models',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Observation.vue') }
+      { path: '', component: () => import('pages/Models.vue') }
     ]
   },
   {

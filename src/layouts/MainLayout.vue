@@ -39,9 +39,6 @@
                   <q-item clickable dense to="sounding">
                     Sounding Skew-T
                   </q-item>
-                  <q-item clickable dense to="observation">
-                    Surface Observation
-                  </q-item>
                   <q-item clickable dense to="fengyuobs">
                     Fengyu Weather Station
                   </q-item>
@@ -53,6 +50,9 @@
                 <q-card-section>
                   <q-item dense clickable to="stforecast">
                     Station Forecast
+                  </q-item>
+                  <q-item dense clickable to="models">
+                    Numerical Model Prediction
                   </q-item>
                 </q-card-section>
               </q-card>
