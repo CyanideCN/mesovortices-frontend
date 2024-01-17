@@ -67,6 +67,9 @@
                   <q-item dense clickable to="ringanalysis">
                     Dvorak Ring Analysis
                   </q-item>
+                  <q-item dense clickable to="satpass">
+                    Future Satellite Passes
+                  </q-item>
                 </q-card-section>
               </q-card>
             </q-expansion-item>

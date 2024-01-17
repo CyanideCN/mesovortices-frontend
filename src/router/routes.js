@@ -29,6 +29,13 @@ const routes = [
     ]
   },
   {
+    path: '/satpass',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/SatPass.vue') }
+    ]
+  },
+  {
     path: '/ringanalysis',
     component: () => import('layouts/MainLayout.vue'),
     children: [
